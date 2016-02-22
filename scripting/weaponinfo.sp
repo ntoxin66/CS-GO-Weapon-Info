@@ -21,12 +21,16 @@ public APLRes AskPluginLoad2(Handle myself, bool late, char[] error, int err_max
 
 public void OnPluginStart()
 {
-	LoadCsgoWeaponInfo();
+	if (!LoadCsgoWeaponInfo())
+	{
+		// throw plugin error required here
+		return;
+	}
 }
 
 public bool LoadCsgoWeaponInfo()
 {
-
+	return false;
 }
 
 public int Native_WeaponInfo_GetWeaponByItemDefinition(Handle plugin, int params)
