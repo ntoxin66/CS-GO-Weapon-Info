@@ -11,7 +11,30 @@ public Plugin myinfo =
 	url = ""
 }
 
+public APLRes AskPluginLoad2(Handle myself, bool late, char[] error, int err_max)
+{
+	RegPluginLibrary("weaponinfo");
+	CreateNative("WeaponInfo_GetWeaponByItemDefinition", Native_WeaponInfo_GetWeaponByItemDefinition);
+	CreateNative("WeaponInfo_GetWeaponByClassname", Native_WeaponInfo_GetWeaponByClassname);
+	return APLRes_Success;
+}
+
 public void OnPluginStart()
 {
+	LoadCsgoWeaponInfo();
+}
 
+public bool LoadCsgoWeaponInfo()
+{
+
+}
+
+public int Native_WeaponInfo_GetWeaponByItemDefinition(Handle plugin, int params)
+{
+	return INVALID_DYNAMIC_OBJECT;
+}
+
+public int Native_WeaponInfo_GetWeaponByClassname(Handle plugin, int params)
+{
+	return INVALID_DYNAMIC_OBJECT;
 }
